@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive MCQ Form</title>
+    <style>
+        body {
+            background-color: #0070D1;
+            font-family: 'Arial', sans-serif;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        .div1 {
+            margin: 0 auto;
+            max-width: 1000px;
+            margin-top: 50px;
+            background-color: #0070D1;
+            padding: 20px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .content {
+            width: 65%;
+        }
+
+        .image-container {
+            width: 30%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .question {
+            margin-bottom: 20px;
+        }
+
+        .question small {
+            font-size: 18px;
+            color: #E1E1E1;
+        }
+
+        .question b {
+            font-size: 28px;
+            color: white;
+            display: block;
+            margin-top: 10px;
+        }
+
+        ol {
+            list-style-type: none;
+            padding-left: 0;
+            margin-top: 20px;
+        }
+
+        li {
+            font-size: 20px;
+            color: white;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        li input[type="radio"] {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            width: 25px;
+            height: 25px;
+            border: 2px solid white;
+            border-radius: 50%;
+            margin-right: 10px;
+            outline: none;
+            cursor: pointer;
+        }
+
+        li input[type="radio"]:checked {
+            background-color: #FF6171;
+            border-color: #FF6171;
+        }
+
+        li input[type="radio"]:checked::before {
+            content: '\2713';
+            color: white;
+            font-size: 18px;
+            display: block;
+            text-align: center;
+            line-height: 25px;
+        }
+
+        .btn1,
+        .btn2 {
+            color: white;
+            background: #FF6171;
+            border: none;
+            padding: 10px 30px;
+            border-radius: 30px;
+            font-size: 20px;
+            margin: 20px 10px;
+            cursor: pointer;
+        }
+
+        .btn1:hover,
+        .btn2:hover {
+            background-color: white;
+            color: #FF6171;
+        }
+
+        p {
+            text-align: center;
+            font-size: 18px;
+        }
+
+        #result {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 36px;
+            color: white;
+        }
+
+        #result h1 {
+            font-size: 64px;
+        }
+
+        #result p {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+
+        #result .btn2 {
+            margin-top: 20px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .div1 {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .content {
+                width: 100%;
+                text-align: left;
+            }
+
+            .image-container {
+                width: 100%;
+                margin-top: 20px;
+            }
+
+            li {
+                font-size: 18px;
+            }
+
+            .btn1,
+            .btn2 {
+                font-size: 18px;
+                padding: 8px 20px;
+            }
+
+            .question b {
+                font-size: 24px;
+            }
+
+            .question small {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div1">
+        <div class="content">
+            <img src="your-logo.png" alt="UTOPIADS Logo" width="200">
+
+            <form id="mcqForm">
+                <div class="question" id="question1">
+                    <small>Question 1/10</small>
+                    <b>How would you rate your suppliers' expertise in PPC management and digital advertising?</b>
+                    <ol>
+                        <li><input type="radio" name="q1" value="2">Exceptional, they are highly knowledgeable and experienced.</li>
+                        <li><input type="radio" name="q1" value="1">Good, they have a decent amount of knowledge and experience.</li>
+                        <li><input type="radio" name="q1" value="0">Average, they have some knowledge and experience.</li>
+                        <li><input type="radio" name="q1" value="0">Poor, they lack significant knowledge and experience.</li>
+                    </ol>
+                </div>
+
+                <div class="question" id="question2" style="display: none;">
+                    <small>Question 2/10</small>
+                    <b>How responsive is your supplier in responding to your requests and optimization/strategy recommendations?</b>
+                    <ol>
+                        <li><input type="radio" name="q2" value="2">Very responsive, they quickly address issues and recommendations.</li>
+                        <li><input type="radio" name="q2" value="1">Responsive, they address issues and recommendations in a timely manner.</li>
+                        <li><input type="radio" name="q2" value="0">Somewhat responsive, they address issues but sometimes delayed.</li>
+                        <li><input type="radio" name="q2" value="0">Not responsive, they often delay in addressing issues.</li>
+                    </ol>
+                </div>
+
+                <div class="question" id="question3" style="display: none;">
+                    <small>Question 3/10</small>
+                    <b>How effective is the communication between you and your supplier?</b>
+                    <ol>
+                        <li><input type="radio" name="q3" value="2">Excellent, clear and proactive communication.</li>
+                        <li><input type="radio" name="q3" value="1">Good, clear communication with occasional proactive suggestions.</li>
+                        <li><input type="radio" name="q3" value="0">Fair, communication is clear but lacks proactiveness.</li>
+                        <li><input type="radio" name="q3" value="0">Poor, communication is often unclear and reactive.</li>
+                    </ol>
+                </div>
+
+                <div class="question" id="question4" style="display: none;">
+                    <small>Question 4/10</small>
+                    <b>How satisfied are you with the overall performance of your campaigns?</b>
+                    <ol>
+                        <li><input type="radio" name="q4" value="2">Very satisfied, the results meet or exceed our expectations.</li>
+                        <li><input type="radio" name="q4" value="1">Satisfied, the results are good and meet our expectations.</li>
+                        <li><input type="radio" name="q4" value="0">Neutral, the results are average and sometimes meet expectations.</li>
+                        <li><input type="radio" name="q4" value="0">Dissatisfied, the results often fall short of expectations.</li>
+                    </ol>
+                </div>
+
+                <div class="question" id="question5" style="display: none;">
+                    <small>Question 5/10</small>
+                    <b>How effective is your supplier in keeping your campaigns fresh and effective?</b>
+                    <ol>
+                        <li><input type="radio" name="q5" value="2">Very effective, they constantly bring new ideas and strategies.</li>
+                        <li><input type="radio" name="q5" value="1">Effective, they often suggest new ideas and strategies.</li>
+                        <li><input type="radio" name="q5" value="0">Somewhat effective, they occasionally suggest new ideas.</li>
+                        <li><input type="radio" name="q5" value="0">Not effective, they rarely suggest new ideas.</li>
+                    </ol>
+                </div>
+
+                <div class="question" id="question6" style="display: none;">
+                    <small>Question 6/10</small>
+                    <b>How transparent is your supplier regarding their strategies, processes, and performance?</b>
+                    <ol>
+                        <li><input type="radio" name="q6" value="2">Very transparent, we have full visibility.</li>
+                        <li><input type="radio" name="q6" value="1">Transparent, we have good visibility.</li>
+                        <li><input type="radio" name="q6" value="0">Somewhat transparent, visibility is limited.</li>
+                        <li><input type="radio" name="q6" value="0">Not transparent, we have little to no visibility.</li>
+                    </ol>
+                </div>
+
+                <div class="question" id="question7" style="display: none;">
+                    <small>Question 7/10</small>
+                    <b>How satisfied are you with the level of access you have to your supplier's team and resources?</b>
+                    <ol>
+                        <li><input type="radio" name="q7" value="2">Very satisfied, we have direct and easy access.</li>
+                        <li><input type="radio" name="q7" value="1">Satisfied, we have good access.</li>
+                        <li><input type="radio" name="q7" value="0">Neutral, access is limited and sometimes delayed.</li>
+                        <li><input type="radio" name="q7" value="0">Dissatisfied, access is often difficult and delayed.</li>
+                    </ol>
+                </div>
+
+                <div class="question" id="question8" style="display: none;">
+                    <small>Question 8/10</small>
+                    <b>How effective is your supplier in collaborating with your internal team and resources?</b>
+                    <ol>
+                        <li><input type="radio" name="q8" value="2">Very effective, they work seamlessly with our team.</li>
+                        <li><input type="radio" name="q8" value="1">Effective, they work well with our team.</li>
+                        <li><input type="radio" name="q8" value="0">Somewhat effective, collaboration is occasionally challenging.</li>
+                        <li><input type="radio" name="q8" value="0">Not effective, collaboration is often difficult.</li>
+                    </ol>
+                </div>
+
+                <div class="question" id="question9" style="display: none;">
+                    <small>Question 9/10</small>
+                    <b>How accountable is your supplier in owning their actions and results in improving your campaigns?</b>
+                    <ol>
+                        <li><input type="radio" name="q9" value="2">Very accountable, they take full responsibility.</li>
+                        <li><input type="radio" name="q9" value="1">Accountable, they take responsibility.</li>
+                        <li><input type="radio" name="q9" value="0">Somewhat accountable, they occasionally take responsibility.</li>
+                        <li><input type="radio" name="q9" value="0">Not accountable, they often shift blame.</li>
+                    </ol>
+                </div>
+
+                <div class="question" id="question10" style="display: none;">
+                    <small>Question 10/10</small>
+                    <b>Overall, how satisfied are you with your current PPC supplier?</b>
+                    <ol>
+                        <li><input type="radio" name="q10" value="2">Very satisfied, they exceed our expectations.</li>
+                        <li><input type="radio" name="q10" value="1">Satisfied, they meet our expectations.</li>
+                        <li><input type="radio" name="q10" value="0">Neutral, they sometimes meet our expectations.</li>
+                        <li><input type="radio" name="q10" value="0">Dissatisfied, they rarely meet our expectations.</li>
+                    </ol>
+                </div>
+
+                <div>
+                    <input type="button" class="btn1" value="Previous" id="prevBtn" onclick="prevQuestion()" style="display: none;">
+                    <input type="button" class="btn2" value="Next" id="nextBtn" onclick="nextQuestion()">
+                    <input type="button" class="btn2" value="Submit" id="submitBtn" style="display: none;" onclick="submitForm()">
+                </div>
+            </form>
+            <div id="result" style="display: none;">
+                <h1>Your Score: 24</h1>
+                <p>Thank you for completing the questionnaire.</p>
+                <input type="button" class="btn2" value="Book a Free Live Audit">
+                <p>Your supplier earned 24 out of 28 points, demonstrating strong performance and effectiveness in delivering results...</p>
+            </div>
+        </div>
+
+        <div class="image-container">
+            <img src="https://utopiads.com/app/uploads/2024/08/Screenshot_15-8-2024_205638_www.figma_.com_.jpeg" alt="Illustrative Image">
+        </div>
+    </div>
+
+    <script>
+        let currentQuestion = 1;
+
+        function showQuestion(questionNumber) {
+            document.querySelector(`#question${currentQuestion}`).style.display = 'none';
+            document.querySelector(`#question${questionNumber}`).style.display = 'block';
+            currentQuestion = questionNumber;
+            document.getElementById('prevBtn').style.display = currentQuestion > 1 ? 'inline' : 'none';
+            document.getElementById('nextBtn').style.display = currentQuestion < 10 ? 'inline' : 'none';
+            document.getElementById('submitBtn').style.display = currentQuestion === 10 ? 'inline' : 'none';
+        }
+
+        function nextQuestion() {
+            if (currentQuestion < 10) {
+                showQuestion(currentQuestion + 1);
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQuestion > 1) {
+                showQuestion(currentQuestion - 1);
+            }
+        }
+
+        function submitForm() {
+            let score = 0;
+            for (let i = 1; i <= 10; i++) {
+                const answer = document.querySelector(`input[name="q${i}"]:checked`);
+                if (answer) {
+                    score += parseInt(answer.value);
+                }
+            }
+            
+            // Hide the form and image container
+            document.getElementById('mcqForm').style.display = 'none';
+            document.querySelector('.image-container').style.display = 'none';
+            
+            // Show the result container
+            document.getElementById('result').style.display = 'block';
+            
+            // Adjust the width of the content container to take full width
+            document.querySelector('.content').style.width = '100%';
+            
+            document.getElementById('result').innerHTML = `
+                <h1>Your Total Score: ${score}</h1>
+                <p>Thank you for completing the questionnaire!</p>
+                <input type="button" class="btn2" value="Book a Free Live Audit">
+                <p>Your supplier earned ${score} out of 28 points, demonstrating strong performance and effectiveness in delivering results...</p>`;
+        }
+    </script>
+</body>
+
+</html>
